@@ -4,13 +4,13 @@ import AssessmentIrregularHoursPage from "./pages/assessmentIrregularHoursPage";
 import LeaveYearStartPage from "./pages/leaveYearStartPage";
 import EntitlementBasedOnPage from "./pages/entitlementBasedOnPage";
 import WorkOutHolidayPage from "./pages/workOutHolidayPage";
-import assessmentOneAnswersPage from "./pages/assessmentOneAnswersPage";
+import AssessmentOneAnswersPage from "./pages/assessmentOneAnswersPage";
 import EmploymentStartPage from "./pages/employmentStartPage";
 import EmploymentEndPage from "./pages/employmentEndPage";
 import HoursInShiftPage from "./pages/hoursInShiftPage";
 import ShiftsWorkedPage from "./pages/shiftsWorkedPage";
 import ShiftsPatternPage from "./pages/shiftsPatternPage";
-import assessmentTwoAnswersPage from "./pages/assessmentTwoAnswersPage";
+import AssessmentTwoAnswersPage from "./pages/assessmentTwoAnswersPage";
 import WorkOutHolidayShiftsPage from "./pages/workOutHolidayShiftsPage";
 
 test(`Full leave year with annualised hours test`, async ({ page }): Promise<void> => {
@@ -29,7 +29,7 @@ test(`Full leave year with annualised hours test`, async ({ page }): Promise<voi
     const workOutHolidayPage: WorkOutHolidayPage = new WorkOutHolidayPage();
     await workOutHolidayPage.checkPageLoads(page);
     await workOutHolidayPage.continueOn(page);
-    const assessmentOneAnswerPage: assessmentOneAnswersPage = new assessmentOneAnswersPage();
+    const assessmentOneAnswerPage: AssessmentOneAnswersPage = new AssessmentOneAnswersPage();
     await assessmentOneAnswerPage.checkPageLoads(page);
 });
 
@@ -64,7 +64,7 @@ test(`Starting and leaving part way through a leave year with shifts test`, asyn
     const shiftsPatternPage: ShiftsPatternPage = new ShiftsPatternPage();
     await shiftsPatternPage.checkPageLoads(page);
     await shiftsPatternPage.continueOn(page);
-    const assessmentTwoAnswerPage: assessmentTwoAnswersPage = new assessmentTwoAnswersPage();
+    const assessmentTwoAnswerPage: AssessmentTwoAnswersPage = new AssessmentTwoAnswersPage();
     await assessmentTwoAnswerPage.checkPageLoads(page);
 
 });
