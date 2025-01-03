@@ -1,0 +1,70 @@
+import {test} from "@playwright/test";
+import LandingPage from "./pages/landingPage";
+import AssessmentIrregularHoursPage from "./pages/assessmentIrregularHoursPage";
+import LeaveYearStartPage from "./pages/leaveYearStartPage";
+import EntitlementBasedOnPage from "./pages/entitlementBasedOnPage";
+import WorkOutHolidayPage from "./pages/workOutHolidayPage";
+import assessmentOneAnswersPage from "./pages/assessmentOneAnswersPage";
+import EmploymentStartPage from "./pages/employmentStartPage";
+import EmploymentEndPage from "./pages/employmentEndPage";
+import HoursInShiftPage from "./pages/hoursInShiftPage";
+import ShiftsWorkedPage from "./pages/shiftsWorkedPage";
+import ShiftsPatternPage from "./pages/shiftsPatternPage";
+import assessmentTwoAnswersPage from "./pages/assessmentTwoAnswersPage";
+import WorkOutHolidayShiftsPage from "./pages/workOutHolidayShiftsPage";
+
+test(`Full leave year with annualised hours test`, async ({ page }): Promise<void> => {
+    const landingPage: LandingPage = new LandingPage();
+    await landingPage.checkPageLoads(page);
+    await landingPage.continueOn(page);
+    const assessmentIrregularHoursPage: AssessmentIrregularHoursPage = new AssessmentIrregularHoursPage();
+    await assessmentIrregularHoursPage.checkPageLoads(page);
+    await assessmentIrregularHoursPage.continueOn(page);
+    const leaveYearStartPage: LeaveYearStartPage = new LeaveYearStartPage();
+    await leaveYearStartPage.checkPageLoads(page);
+    await leaveYearStartPage.continueOn(page);
+    const entitlementBasedOnPage: EntitlementBasedOnPage = new EntitlementBasedOnPage();
+    await entitlementBasedOnPage.checkPageLoads(page);
+    await entitlementBasedOnPage.continueOnAnnualised(page);
+    const workOutHolidayPage: WorkOutHolidayPage = new WorkOutHolidayPage();
+    await workOutHolidayPage.checkPageLoads(page);
+    await workOutHolidayPage.continueOn(page);
+    const assessmentOneAnswerPage: assessmentOneAnswersPage = new assessmentOneAnswersPage();
+    await assessmentOneAnswerPage.checkPageLoads(page);
+});
+
+test(`Starting and leaving part way through a leave year with shifts test`, async ({ page }): Promise<void> => {
+    const landingPage: LandingPage = new LandingPage();
+    await landingPage.checkPageLoads(page);
+    await landingPage.continueOn(page);
+    const assessmentIrregularHoursPage: AssessmentIrregularHoursPage = new AssessmentIrregularHoursPage()
+    await assessmentIrregularHoursPage.checkPageLoads(page);
+    await assessmentIrregularHoursPage.continueOn(page);
+    const leaveYearStartPage: LeaveYearStartPage = new LeaveYearStartPage();
+    await leaveYearStartPage.checkPageLoads(page);
+    await leaveYearStartPage.continueOn(page);
+    const entitlementBasedOnPage: EntitlementBasedOnPage = new EntitlementBasedOnPage();
+    await entitlementBasedOnPage.checkPageLoads(page);
+    await entitlementBasedOnPage.continueOnShifts(page);
+    const workOutHolidayShiftsPage: WorkOutHolidayShiftsPage = new WorkOutHolidayShiftsPage();
+    await workOutHolidayShiftsPage.checkPageLoads(page);
+    await workOutHolidayShiftsPage.continueOnPartway(page);
+    const employmentStartPage: EmploymentStartPage = new EmploymentStartPage();
+    await employmentStartPage.checkPageLoads(page);
+    await employmentStartPage.continueOn(page);
+    const employmentEndPage: EmploymentEndPage = new EmploymentEndPage();
+    await employmentEndPage.checkPageLoads(page);
+    await employmentEndPage.continueOn(page);
+    const hoursInShiftPage: HoursInShiftPage = new HoursInShiftPage();
+    await hoursInShiftPage.checkPageLoads(page);
+    await hoursInShiftPage.continueOn(page);
+    const shiftsWorkedPage: ShiftsWorkedPage = new ShiftsWorkedPage();
+    await shiftsWorkedPage.checkPageLoads(page);
+    await shiftsWorkedPage.continueOn(page);
+    const shiftsPatternPage: ShiftsPatternPage = new ShiftsPatternPage();
+    await shiftsPatternPage.checkPageLoads(page);
+    await shiftsPatternPage.continueOn(page);
+    const assessmentTwoAnswerPage: assessmentTwoAnswersPage = new assessmentTwoAnswersPage();
+    await assessmentTwoAnswerPage.checkPageLoads(page);
+
+});
